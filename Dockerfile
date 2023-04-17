@@ -5,8 +5,7 @@ WORKDIR /app
 COPY mqtt2strapi /app
 COPY entrypoint.sh /app
 
-RUN ls -a && \
-    pip install -r mqtt2strapi/requirements.txt && \
+RUN pip install -r requirements.txt && \
     chmod +x entrypoint.sh && \
     mkdir /app/config
 

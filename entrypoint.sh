@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /app/mqtt2strapi/src
+cd /app/src
 
 while true; do
     python app.py
