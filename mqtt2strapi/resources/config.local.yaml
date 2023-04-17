@@ -1,0 +1,15 @@
+mqtt:
+  topic: "hablistener"
+  host: "localhost"
+  port: 1883
+  user: "habmaps"
+  password: "habmaps"
+strapi:
+    host: "http://localhost:1337"
+    user: "admin"
+    password: "password"
+    collection: 
+      frame: "frames"
+      health: "statuses"
+      lastseen: "last-seens"
+    error_file: "/tmp/errors.log"
