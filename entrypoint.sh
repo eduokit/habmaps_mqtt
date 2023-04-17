@@ -1,6 +1,6 @@
 #!/bin/bash
+cd /app/mqtt2strapi/src
 
-# Bucle infinito de Python
 while true; do
-    python mqtt2strapi/app.py
+    python app.py
 done
