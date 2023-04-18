@@ -20,8 +20,8 @@ services:
       - "1883:1883"
       - "8081:9001"
     volumes:
-      - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf
-      - ./config/mosquitto.passwd:/mosquitto/config/mosquitto.passwd
+      - config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - config/mosquitto.passwd:/mosquitto/config/mosquitto.passwd
     networks:
       - core_npm_hcinet
 
