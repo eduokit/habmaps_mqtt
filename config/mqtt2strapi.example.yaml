@@ -1,11 +1,11 @@
 mqtt:
   topic: "hablistener"
-  host: "localhost"
+  host: "mosquitto"
   port: 1883
   user: "habmaps"
   password: "habmaps"
 strapi:
-    host: "http://strapi:1337"
+    host: "http://habmaps_strapi:1337"
     user: "admin"
     password: "password"
     collection: 

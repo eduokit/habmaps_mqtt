@@ -4,6 +4,7 @@ services:
 
   mqtt2strapi:
     image: alpeza/habmaps_mqtt2strapi:latest
+    container_name: habmaps_mqtt2strapi
     environment:
       CONFIG_FILE: /app/config/mqtt2strapi.example.yaml
     volumes:
