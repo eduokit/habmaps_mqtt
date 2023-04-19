@@ -92,8 +92,22 @@ class StrapiHabmapsService(StrapiService):
                 self.postData(messageBS, 'lastseen')
                 self.postData(messageHab, 'lastseen')
 
+    def _delete_duplicates(self, to_delete):
+        self.logger.debug(f"Se van a eliminar duplicados { str(to_delete)}")
+        for el in to_delete:
+            self.deleteData('lastseen', el[0])
+
     def _find_id_by_nameId(self, data, nameId):
+        elems = []
         for element in data["data"]:
             if element["attributes"]["nameId"] == nameId:
-                return [element["id"], element["attributes"]["counter"]]
-        return [-404, 0]
+                elems.append([element["id"], element["attributes"]["counter"]])
+        if len(elems) == 0:
+            return [-404, 0]
+        elif len(elems) == 1:
+            return elems[0]
+        else:
+            elems.sort(key=lambda x: x[0])
+            to_delete = elems[1:]
+            self._delete_duplicates(to_delete)
+            return elems[0]

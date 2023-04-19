@@ -5,6 +5,7 @@ services:
   mqtt2strapi:
     image: alpeza/habmaps_mqtt2strapi:latest
     container_name: habmaps_mqtt2strapi
+    restart: unless-stopped
     environment:
       CONFIG_FILE: /app/config/mqtt2strapi.example.yaml
     volumes:
@@ -16,6 +17,7 @@ services:
     image: eclipse-mosquitto:latest
     hostname: mosquitto
     container_name: mosquitto
+    restart: unless-stopped
     ports:
       - "1883:1883"
       - "8081:9001"

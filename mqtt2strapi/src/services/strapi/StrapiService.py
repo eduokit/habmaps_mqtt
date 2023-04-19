@@ -54,6 +54,17 @@ class StrapiService:
                 f'Error sending message: {str(data)}, {str(e)}, {traceback.format_exc()}')
             return False
 
+    def deleteData(self, collectionId, documentId):
+        url = f"{self.host}/api/{self.collection[collectionId]}/{documentId}"
+        response = requests.delete(url)
+
+        if response.status_code == 200:
+            content = response.json()
+            return content
+        else:
+            self.logger.error(
+                f"La petición DELETE a Strapi falló con el código de respuesta {response.status_code}")
+
     def getData(self, collectionId):
         url = f"{self.host}/api/{self.collection[collectionId]}"
         response = requests.get(url)
